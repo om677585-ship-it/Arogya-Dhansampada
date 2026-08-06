@@ -505,6 +505,10 @@
         </div>
       </div>
 
+      <h3 class="ad-subhead" data-i18n="pdReviewsHead">Reviews</h3>
+      <div class="ad-grid" id="pdReviews"></div>
+      <p class="ad-note" data-i18n="pdNote">Sample placeholders — replace with your real, verified customer reviews.</p>
+
       <button type="button" class="ad-btn ad-detail-order-btn" data-target="order" data-i18n="pdOrderBtn">Order This Product</button>
     </div>
   </section>
@@ -653,6 +657,8 @@
       pdBenefitsHead: {en:"Benefits", mr:"फायदे", hi:"फायदे"},
       pdIngredientsHead: {en:"Ingredients", mr:"घटक", hi:"सामग्री"},
       pdHowToHead: {en:"How to Use", mr:"वापरण्याची पद्धत", hi:"उपयोग विधि"},
+      pdReviewsHead: {en:"Reviews", mr:"अभिप्राय", hi:"समीक्षाएं"},
+      pdNote: {en:"Sample placeholders — replace with your real, verified customer reviews.", mr:"नमुना मजकूर — तुमच्या खऱ्या, पडताळणी केलेल्या ग्राहक अभिप्रायांनी बदला.", hi:"नमूना टेक्स्ट — इसे अपनी वास्तविक, सत्यापित ग्राहक समीक्षाओं से बदलें."},
       pdOrderBtn: {en:"Order This Product", mr:"हे उत्पादन ऑर्डर करा", hi:"यह उत्पाद ऑर्डर करें"},
       orderTitle: {en:"Order Now", mr:"आता ऑर्डर करा", hi:"अभी ऑर्डर करें"},
       orderSubtitle: {en:"Select a product and share your details — we'll confirm your order.", mr:"उत्पादन निवडा आणि तुमचे तपशील द्या — आम्ही तुमची ऑर्डर निश्चित करू.", hi:"उत्पाद चुनें और अपनी जानकारी दें — हम आपके ऑर्डर की पुष्टि करेंगे."},
@@ -2054,6 +2060,11 @@
           return '<li>'+h+'</li>';
         }).join('');
       }
+
+      var reviewsEl = document.getElementById('pdReviews');
+      reviewsEl.innerHTML = data.reviews.map(function(r){
+        return '<div class="ad-review"><div class="stars">★★★★★</div><p>"'+r+'"</p><div class="who">— Customer name, City</div></div>';
+      }).join('');
 
       if(!isRefresh){ showSection('productDetail'); }
     }
